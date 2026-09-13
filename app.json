@@ -1,0 +1,33 @@
+{
+  "expo": {
+    "name": "The Saver",
+    "slug": "the-saver",
+    "scheme": "thesaver",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.thesaver.app"
+    },
+    "android": {
+      "package": "com.thesaver.app"
+    },
+    "plugins": [
+      [
+        "expo-media-library",
+        {
+          "photosPermission": "Allow The Saver to access your saved media.",
+          "savePhotosPermission": "Allow The Saver to save downloaded videos to your gallery.",
+          "granularPermissions": [
+            "video"
+          ]
+        }
+      ],
+      "expo-video",
+      "expo-sharing",
+      "expo-status-bar",
+      "expo-secure-store"
+    ]
+  }
+}

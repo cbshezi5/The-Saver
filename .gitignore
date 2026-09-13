@@ -1,0 +1,10 @@
+node_modules/
+.expo/
+dist/
+.env
+server/.venv/
+server/cache/
+server/.env
+*.log
+__pycache__/
+verification/downloads/
