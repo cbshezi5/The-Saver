@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: the-saver-media
+    runtime: docker
+    plan: free
+    numInstances: 1
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: "10000"
+      - key: MEDIA_ACCESS_MODE
+        value: official
+    # Add OAuth configuration and secrets in the Render Environment dashboard.
+    # See docs/RENDER.md. Never commit access tokens or app secrets here.

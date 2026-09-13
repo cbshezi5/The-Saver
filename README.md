@@ -1,5 +1,7 @@
 # The Saver
 
+Deploy the media backend with the included Dockerfile and Render Blueprint: [Render deployment guide](docs/RENDER.md).
+
 An Expo Go React Native app for saving authorized videos from X, Facebook Pages, and linked Instagram professional accounts. Official OAuth API access is now the default. Follow [Official API setup](docs/OFFICIAL_APIS.md) to register developer apps, configure server-side credentials, and connect accounts. Provider consent has not been live-tested yet; developer apps are still needed.
 
 The public yt-dlp downloader remains available only when `MEDIA_ACCESS_MODE=legacy` is explicitly set in `server/.env`. The original public-video instructions and five-link verification below describe that legacy mode.

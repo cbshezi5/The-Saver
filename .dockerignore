@@ -1,0 +1,9 @@
+# Allowlist: keep credentials, caches, .git, Expo, and recordings out of the context.
+**
+!Dockerfile
+!.dockerignore
+!server/
+!server/*.mjs
+!server/requirements.txt
+!shared/
+!shared/*.mjs
