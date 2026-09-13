@@ -83,6 +83,9 @@ test('official API isolates jobs across sessions and never calls the legacy extr
   t.after(async () => { await new Promise(resolve => server.close(resolve)); await rm(cacheDir, { recursive: true, force: true }); });
   const base = `http://127.0.0.1:${server.address().port}`;
   const req = (route, token, body) => fetch(base + route, { method: body ? 'POST' : 'GET', headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' }, body: body ? JSON.stringify(body) : undefined });
+  const landing = await fetch(base + '/');
+  assert.equal(landing.status, 200);
+  assert.equal((await landing.json()).service, 'The Saver media API');
   assert.equal((await req('/resolve', '', { url: 'https://x.com/me/status/123' })).status, 401);
   const job = await (await req('/resolve', owner.token, { url: 'https://x.com/me/status/123' })).json();
   assert.ok(job.id);

@@ -34,6 +34,7 @@ export function createMediaServer({ run = runExtractor, cacheDir = cache, mode =
     if (req.method === 'OPTIONS') { res.writeHead(204); return res.end(); }
     const url = new URL(req.url, 'http://localhost');
     try {
+      if (req.method === 'GET' && url.pathname === '/') return json(res, 200, { service: 'The Saver media API', mode, health: '/health', message: 'Use this base URL in The Saver Settings. The web app is served separately; protected API routes require an app session.' });
       if (req.method === 'GET' && url.pathname === '/health') return json(res, 200, { ok: true, mode });
       const callback = url.pathname.match(/^\/oauth\/(x|meta)\/callback$/);
       if (req.method === 'GET' && callback) {
